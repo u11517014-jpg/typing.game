@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>太空打字入侵者 - 專案開發歷程 (Dev Log)</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #070913;
+            color: #e2e8f0;
+        }
+        .font-orbitron {
+            font-family: 'Orbitron', sans-serif;
+        }
+        .glow-cyan {
+            text-shadow: 0 0 12px rgba(6, 182, 212, 0.6);
+        }
+        .glass-card {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(56, 189, 248, 0.15);
+            transition: all 0.25s ease-in-out;
+        }
+        .glass-card:hover {
+            border-color: rgba(6, 182, 212, 0.4);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-cyan-500 selection:text-slate-900">
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 glass-card border-b border-slate-800/80 px-6 py-4 backdrop-blur-md">
+        <div class="max-w-5xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-purple-600 flex items-center justify-center text-slate-950 font-black shadow-lg shadow-cyan-500/20">
+                    <i data-lucide="gamepad-2" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <h1 class="font-orbitron text-lg font-bold text-white tracking-wider glow-cyan">SPACE TYPING INVASION</h1>
+                    <p class="text-xs text-cyan-400/80">專案開發歷程與版本切換導覽頁</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-3">
+                <a id="githubBtn" href="https://github.com/YOUR_USERNAME/YOUR_REPO/commits/main" target="_blank" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 rounded-lg text-sm flex items-center gap-2 transition active:scale-95">
+                    <i data-lucide="github" class="w-4 h-4"></i>
+                    <span>Git Commits 歷程</span>
+                </a>
+                <a href="v1.2/game.html" class="px-4 py-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold rounded-lg text-sm flex items-center gap-2 shadow-md shadow-cyan-500/20 transition active:scale-95">
+                    <i data-lucide="play" class="w-4 h-4 fill-current"></i>
+                    <span>體驗最新版本 (v1.2)</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-5xl mx-auto px-6 py-10 w-full space-y-10 flex-1">
+        <!-- Hero Section -->
+        <section class="glass-card p-8 rounded-2xl relative overflow-hidden">
+            <div class="absolute -right-16 -bottom-16 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -left-16 -top-16 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-3xl space-y-4 relative z-10">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/80 border border-cyan-500/30 text-cyan-400 text-xs font-semibold">
+                    <i data-lucide="folder-git-2" class="w-3.5 h-3.5"></i>
+                    課程專案學習疊代記錄 (Software Development Log)
+                </div>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight leading-tight">
+                    英文打字學習遊戲：<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400">版本演進與獨立體驗導覽</span>
+                </h2>
+                <p class="text-slate-400 text-sm md:text-base leading-relaxed">
+                    本專案依據設計簡報進行漸進式開發，從基礎運作邏輯、指法分析模組到手繪紫色幽靈造型 1:1 還原。您可以點擊下方各版本區塊，跳轉遊玩該階段所開發的獨立網頁。
+                </p>
+            </div>
+        </section>
+
+        <!-- Development Versions List -->
+        <section class="space-y-6">
+            <div class="flex justify-between items-end border-b border-slate-800 pb-4">
+                <div>
+                    <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                        <i data-lucide="layers" class="w-5 h-5 text-cyan-400"></i> 開發里程碑列表 (Version History)
+                    </h3>
+                    <p class="text-xs text-slate-400 mt-1">點擊各版本卡片中的按鈕，即可跳轉至該版本的遊戲網頁</p>
+                </div>
+                <span class="text-xs text-slate-500 font-mono">共計 3 個版本專案</span>
+            </div>
+
+            <div class="grid grid-cols-1 gap-6">
+
+                <!-- VERSION 1.2 -->
+                <div class="glass-card p-6 rounded-2xl relative border-l-4 border-l-cyan-500 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                    <div class="space-y-3 flex-1">
+                        <div class="flex items-center gap-3">
+                            <span class="text-xs font-black font-orbitron px-2.5 py-1 rounded bg-cyan-500/20 text-cyan-400 border border-cyan-500/40">v1.2 (最新版本)</span>
+                            <span class="text-xs text-slate-500 font-mono">2026-10-18</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-white">手繪紫色幽靈造型還原 & 提前擊中機制與首關調整</h4>
+                        <p class="text-sm text-slate-300 leading-relaxed">
+                            依據設計手稿 (`英文打字學習.png`)，重構掉落物外觀為圓頂 wave 裙擺紫色幽靈。改進打字判定機制，允許怪物在落至基準線前即可按下擊中且不中斷 Combo，並將 Home Row 基準列提至第 1 關。
+                        </p>
+                        <div class="flex flex-wrap gap-2 text-xs text-slate-400 pt-1">
+                            <span class="bg-slate-900/80 px-2.5 py-1 rounded border border-slate-800">✨ 手繪幽靈繪製</span>
+                            <span class="bg-slate-900/80 px-2.5 py-1 rounded border border-slate-800">🎯 提前連擊免 Miss 判定</span>
+                            <span class="bg-slate-900/80 px-2.5 py-1 rounded border border-slate-800">🎹 Home Row 第一順位</span>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-auto flex flex-col gap-2">
+                        <!-- 跳轉連結，可改為相對路徑或該版本檔案路徑 -->
+                        <a href="v1.2/game.html" target="_blank" class="px-5 py-2.5 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold rounded-xl text-sm flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/20 transition active:scale-95">
+                            <span>遊玩 v1.2 版本</span>
+                            <i data-lucide="external-link" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- VERSION 1.1 -->
+                <div class="glass-card p-6 rounded-2xl relative border-l-4 border-l-purple-500 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                    <div class="space-y-3 flex-1">
+                        <div class="flex items-center gap-3">
+                            <span class="text-xs font-black font-orbitron px-2.5 py-1 rounded bg-purple-500/20 text-purple-400 border border-purple-500/40">v1.1</span>
+                            <span class="text-xs text-slate-500 font-mono">2026-10-17</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-white">學習診斷報告與 Web Audio 音效合成系統</h4>
+                        <p class="text-sm text-slate-300 leading-relaxed">
+                            引進 Web Audio API 動態產生雷射與失誤音效。新增遊戲結束時的指法診斷分析功能，能根據 Home Row / 上排 / 下排統計失誤次數並給予個人化練習建議。
+                        </p>
+                        <div class="flex flex-wrap gap-2 text-xs text-slate-400 pt-1">
+                            <span class="bg-slate-900/80 px-2.5 py-1 rounded border border-slate-800">🔊 Web Audio 音效</span>
+                            <span class="bg-slate-900/80 px-2.5 py-1 rounded border border-slate-800">📊 弱點鍵盤排分析</span>
+                            <span class="bg-slate-900/80 px-2.5 py-1 rounded border border-slate-800">⚡ 難度選單</span>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-auto flex flex-col gap-2">
+                        <a href="v1.1/game.html" target="_blank" class="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold rounded-xl text-sm border border-slate-700 flex items-center justify-center gap-2 transition active:scale-95">
+                            <span>遊玩 v1.1 版本</span>
+                            <i data-lucide="external-link" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- VERSION 1.0 -->
+                <div class="glass-card p-6 rounded-2xl relative border-l-4 border-l-slate-600 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                    <div class="space-y-3 flex-1">
+                        <div class="flex items-center gap-3">
+                            <span class="text-xs font-black font-orbitron px-2.5 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700">v1.0</span>
+                            <span class="text-xs text-slate-500 font-mono">2026-10-16</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-white">基礎遊戲邏輯與選單 UI 原型 (Prototype)</h4>
+                        <p class="text-sm text-slate-300 leading-relaxed">
+                            建立遊戲主迴圈（Canvas RequestAnimationFrame）、鍵盤事件監聽器、基礎計分與 Combo 系統，並劃分單排與混合鍵盤關卡選擇介面。
+                        </p>
+                        <div class="flex flex-wrap gap-2 text-xs text-slate-400 pt-1">
+                            <span class="bg-slate-900/80 px-2.5 py-1 rounded border border-slate-800">🎮 Canvas 雙緩衝動畫</span>
+                            <span class="bg-slate-900/80 px-2.5 py-1 rounded border border-slate-800">⌨️ 鍵盤事件監聽</span>
+                            <span class="bg-slate-900/80 px-2.5 py-1 rounded border border-slate-800">🏆 基礎 Combo 計分</span>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-auto flex flex-col gap-2">
+                        <a href="v1.0/game.html" target="_blank" class="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold rounded-xl text-sm border border-slate-700 flex items-center justify-center gap-2 transition active:scale-95">
+                            <span>遊玩 v1.0 版本</span>
+                            <i data-lucide="external-link" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800/80 py-6 text-center text-xs text-slate-500 space-y-2">
+        <p>© 2026 Space Typing Invasion - Typing Game Development Portfolio</p>
+        <p>本專案成果託管於 GitHub Pages，歡迎查看程式碼變更履歷。</p>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
